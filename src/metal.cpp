@@ -198,7 +198,7 @@ static std::unordered_map<const void*, SEXP> buffer_shelter;
       device_xptr->get()->newBuffer(size, MTL::ResourceStorageModeShared);
 
   if (buffer == nullptr) {
-    preserved.release(buffer_shelter[ptr]);
+    reserved.release(buffer_shelter[ptr]);
     buffer_shelter.erase(ptr);
     stop("Failed to create buffer");
   }
